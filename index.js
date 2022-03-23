@@ -61,7 +61,7 @@ btnEnviar.onclick = (evento) => {
       // vegano:inputVegano
     }
    
-    console.log(novaReceita)
+    // console.log(novaReceita)
     listaDeReceitas.push(novaReceita)
     exibirReceitas()
   
@@ -74,10 +74,11 @@ function exibirReceitas() {
   for (let index = 0; index < listaDeReceitas.length; index++) {
   htmlReceitas += `<article class="card">
   <h2>${listaDeReceitas[index].titulo}</h2>
-  <small>Dificuldade: ${listaDeReceitas[index].dificuldade.split()}</small>
+  <small>Dificuldade: ${listaDeReceitas[index].dificuldade}</small>
+  <p>Ingredientes: ${listaDeReceitas[index].ingredientes}</p>
   <p>${listaDeReceitas[index].preparo}</p>
+  <p> Link vídeo: ${listaDeReceitas[index].link}
   </article>`
-
   }
 
   let painelReceitas = document.querySelector('.painel-receitas')
@@ -85,7 +86,9 @@ function exibirReceitas() {
   painelReceitas.innerHTML=htmlReceitas;
 }
 
-exibirReceitas(listaDeReceitas);
+exibirReceitas();
+console.log(listaDeReceitas)
+
 
 function deletarReceita(id) {
   let novaListaDeReceitas = [];
